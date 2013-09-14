@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Shadow Password Generator</title>
+
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation.css') }}" />
+  
+
+  <script src="{{ url_for('static', filename='js/vendor/custom.modernizr.js') }}"></script>
+
+</head>
+<body>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<!--Jinja example -->
+			<h2>Shadow-Gen</h2>
+			<hr />
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-8 columns">
+			
+			
+		
+			<img src="{{ url_for('static', filename='img/the-shadow.jpg') }}">
+
+      <p><h3>
+      {% with messages = get_flashed_messages() %}
+              {% if messages %}
+              <div data-alert class="alert-box success">
+                {% for message in messages %}
+                 {{ message }}
+                 <a href="#" class="close">&times;</a>
+                 {% endfor %}
+              </div>
+               {% endif %}
+            {% endwith %}
+      </h3></p>
+		
+			<h4>Enter your password and a salted shadow hash will be generated for you.</h4>
+			<form action="/" method="POST">
+				Password:<input type='password' name='pass' maxlength='21' size='21'><br/>
+			    <p>
+			    <input type="submit" name="submit" value="Create" id="large button" class="large button" />
+			    </p>
+			</form>
+		</div>
+		<!--End Data Entry Form -->
+
+	
+
+        <!-- Sidebar Content -->
+		
+	
+  
+  <script src="{{ url_for('static', filename='js/vendor/zepto.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/vendor/jquery.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='js/foundation.min.js') }}"></script>
+
+  <!--
+  
+  <script src="js/foundation/foundation.js"></script>
+  
+  <script src="js/foundation/foundation.alerts.js"></script>
+  
+  <script src="js/foundation/foundation.clearing.js"></script>
+  
+  <script src="js/foundation/foundation.cookie.js"></script>
+  
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  
+  <script src="js/foundation/foundation.forms.js"></script>
+  
+  <script src="js/foundation/foundation.joyride.js"></script>
+  
+  <script src="js/foundation/foundation.magellan.js"></script>
+  
+  <script src="js/foundation/foundation.orbit.js"></script>
+  
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  
+  <script src="js/foundation/foundation.reveal.js"></script>
+  
+  <script src="js/foundation/foundation.section.js"></script>
+  
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  
+  <script src="js/foundation/foundation.topbar.js"></script>
+  
+  <script src="js/foundation/foundation.interchange.js"></script>
+  
+  -->
+  
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>
