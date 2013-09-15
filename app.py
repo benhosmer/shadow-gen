@@ -26,4 +26,5 @@ def main_page():
         return redirect('/')
 
 if __name__ == '__main__':
-    app.run(host='192.168.33.221', debug=True)
+    #app.run(host='192.168.33.221', debug=True)
+    app.run(debug=True)
