@@ -11,4 +11,36 @@ way, you are probably exchanging passwords.
 
 Using shadow gen, you don't have to. The user simply enters their password, and then sends the generated salted hash to the person creating their server account. 
 
-The has matches the pattern found in /etc/shadow. It currently supports md5 (those used on CentOS and RHEL).
+The hash matches the pattern found in /etc/shadow. It currently supports md5 (those used on CentOS and RHEL).
+
+If you combine this with only allowing public key authentication, you can set user's passwords without actually
+needing to know their passowrds.
+
+It is essentially `$ python -c "import crypt; print crypt.crypt('mypasswordhere', '\$1\$SALTsalt')"` but in an easy to
+use webapp for users.
+
+The output from the above command would look like this:
+
+`$1$SALTsalt$z6ZRnfeJvg.EiK/Enyl.k0`
+
+It doesn't store any passwords or keys and each time it is used, a random salt is generated to create the hash.
+
+The `/etc/shadow` file looks like this:
+
+    daemon:*:15513:0:99999:7:::
+    adm:*:15513:0:99999:7:::
+    lp:*:15513:0:99999:7:::
+    sync:*:15513:0:99999:7:::
+    shutdown:*:15513:0:99999:7:::
+    halt:*:15513:0:99999:7:::
+    mail:*:15513:0:99999:7:::
+    uucp:*:15513:0:99999:7:::
+    operator:*:15513:0:99999:7:::
+    games:*:15513:0:99999:7:::
+    gopher:*:15513:0:99999:7:::
+    ftp:*:15513:0:99999:7:::
+    nobody:*:15513:0:99999:7:::
+    mike:$1$SALTsalt$z6ZRnfeJvg.EiK/Enyl.k0:15961:0:99999:7:::
+    
+Using the hash, you can set the user "mike's" password: `mike:$1$SALTsalt$z6ZRnfeJvg.EiK/Enyl.k0:15961:0:99999:7:::`
+
