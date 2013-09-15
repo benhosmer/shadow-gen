@@ -44,7 +44,7 @@ The `/etc/shadow` file looks like this:
     
 Using the hash, you can set the user "mike's" password: `mike:$1$SALTsalt$z6ZRnfeJvg.EiK/Enyl.k0:15961:0:99999:7:::`
 
-You can try it out at [shadow.heyhomeslice.com(http://shadow.heyhomeslice.com)
+You can try it out at [shadow.heyhomeslice.com](http://shadow.heyhomeslice.com)
 
 *NOTE:* To generate proper shadow hashes, this app should be run on a linux machine. OS X doesn't handle the hasing
 properyly. You can still run the app on OS X, just don't expect your passwords to actually work when you put them in
